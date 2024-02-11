@@ -3,6 +3,8 @@ import sys
 import requests
 from dotenv import dotenv_values
 import json
+from rich.console import Console
+from inc.json import render
 
 config = dotenv_values('.env')
 
@@ -30,4 +32,6 @@ r = requests.get(base_url, params=params, headers=headers)
 
 obj = json.loads(r.text)
 
-print(obj)
+#print(obj, type(obj))
+
+render(obj, args.dictionary)
