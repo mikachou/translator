@@ -36,12 +36,12 @@ It's possible to retrieve the key later by clicking on "show secret"
 Clone the repository
 
 ```
-$ git clone https://github.com/mikachou/house-prices
+$ git clone https://github.com/mikachou/translator
 ```
 
 Then enter the folder
 ```
-$ cd house-prices
+$ cd translator
 ```
 
 Install right python version with pyenv :
