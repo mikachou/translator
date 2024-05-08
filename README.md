@@ -67,6 +67,8 @@ Install required packages
 $ pip install -r requirements.txt
 ```
 
+Copy .env.dist into .env and put API Key into `SECRET` const
+
 ### Aliases
 
 In `$HOME/bin` I also create the following shell script `trs`
@@ -91,6 +93,7 @@ trd() {
 tre() {
   trs enfr $1
 }
+```
 
 ### Usage
 
