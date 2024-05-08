@@ -1,7 +1,9 @@
 from rich.console import Console
 from rich.table import Table
 from roman import toRoman
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
+import warnings
+warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning, module='bs4')
 
 def get_text(html):
     return BeautifulSoup(html, 'html.parser').get_text()
