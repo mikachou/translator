@@ -80,6 +80,7 @@ eval "$(pyenv init -)"
 cd ~/code/python/translator
 pyenv activate translator
 python -W ignore main.py -l $1 $2
+pyenv deactivate
 ```
 
 In $HOME/.bash_functions I also add the 2 following functions in order to translate from/to

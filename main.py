@@ -28,6 +28,10 @@ headers = {
 
 r = requests.get(base_url, params=params, headers=headers)
 
+if r.status_code != 200 or r.text is None:
+    print("No translation for this input")
+    exit()
+
 #print(r.text)
 
 obj = json.loads(r.text)
