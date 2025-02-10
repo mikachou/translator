@@ -15,14 +15,23 @@ def render(obj, langs):
     for lang in obj:
         console.print(f"\n[bold red]{lang['lang'].upper()} > {langs.replace(lang['lang'], '').upper()}[/bold red]")
         for hit in lang['hits']:
-            for i, rom in enumerate(hit['roms']):
-                console.print(f"\n[bold yellow]{toRoman(i + 1)}. {rom['headword']}[/bold yellow]")
-                for arab in rom['arabs']:
-                    console.print(f"\n[bold green]{get_text(arab['header'])}[/bold green]")
-                    grid = Table.grid(expand=True)
-                    grid.add_column(ratio=1)
-                    grid.add_column(ratio=1)
-                    for translation in arab['translations']:
-                        grid.add_row(get_text(translation['source']), get_text(translation['target']))
-                    console.print(grid)
+            if 'roms' in hit:
+                for i, rom in enumerate(hit['roms']):
+                    console.print(f"\n[bold yellow]{toRoman(i + 1)}. {rom['headword']}[/bold yellow]")
+                    for arab in rom['arabs']:
+                        console.print(f"\n[bold green]{get_text(arab['header'])}[/bold green]")
+                        grid = Table.grid(expand=True)
+                        grid.add_column(ratio=1)
+                        grid.add_column(ratio=1)
+                        for translation in arab['translations']:
+                            grid.add_row(get_text(translation['source']), get_text(translation['target']))
+                        console.print(grid)
+            else:
+                grid = Table.grid(expand=True)
+                grid.add_column(ratio=1)
+                grid.add_column(ratio=1)
+                grid.add_row(get_text(hit['source']), get_text(hit['target']))
+                console.print(grid)
+
     print()
+
